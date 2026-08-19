@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFQDJ0TW9H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+
+  gtag("config", "G-YFQDJ0TW9H");
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cat Calorie Calculator — How Many Calories Does Your Cat Need? | Saarati</title>
+<meta name="description" content="Free cat calorie calculator based on the standard veterinary formula. Enter your cat's weight, life stage, and goal to get a daily calorie target and meal-by-meal portions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#FFF6EC;--paper:#FFFFFF;--ink:#3A2B22;--ink-soft:#8C7364;--brand:#E8632C;--brand-deep:#B8431C;--energy:#2AA398;--line:#F2E1D0;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Tajawal',sans-serif;line-height:1.9;}
+  h1,h2{font-family:'Cairo',sans-serif;color:var(--brand-deep);}
+  a{color:var(--brand);}
+  header{padding:22px 0;border-bottom:1px solid var(--line);}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+  header .wrap{max-width:1120px;display:flex;justify-content:space-between;align-items:center;}
+  .logo{font-family:'Cairo',sans-serif;font-weight:800;font-size:20px;color:var(--brand-deep);text-decoration:none;}
+  .logo span{color:var(--energy);}
+  article{padding:44px 0;}
+  .art-tag{font-size:13px;font-weight:700;color:var(--brand-deep);background:#FCE6D8;padding:5px 12px;border-radius:999px;}
+  h1{font-size:clamp(26px,4vw,36px);margin:18px 0 8px;line-height:1.4;}
+  .meta{color:var(--ink-soft);font-size:14px;margin-bottom:24px;}
+  p{color:var(--ink);}
+  h2{font-size:20px;margin-top:32px;}
+
+  .calc-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px;margin:24px 0;box-shadow:0 1px 2px rgba(22,35,28,.04), 0 12px 32px rgba(22,35,28,.08);}
+  .field{margin-bottom:14px;}
+  .field label{display:block;font-size:13px;font-weight:700;color:var(--ink-soft);margin-bottom:6px;}
+  .field input, .field select{width:100%;padding:12px 14px;border-radius:11px;border:1.5px solid var(--line);background:#FAFBF9;font-family:'Tajawal',sans-serif;font-size:15px;color:var(--ink);}
+  .field input:focus, .field select:focus{outline:none;border-color:var(--brand);}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .seg{display:flex;background:#EEF1EB;border-radius:12px;padding:4px;gap:4px;margin-bottom:14px;}
+  .seg button{flex:1;padding:10px;border:none;border-radius:9px;background:transparent;font-family:'Tajawal',sans-serif;font-weight:700;font-size:14px;color:var(--ink-soft);cursor:pointer;}
+  .seg button.active{background:var(--brand);color:#fff;}
+  .btn{width:100%;padding:14px;border:none;border-radius:12px;background:var(--energy);color:#fff;font-weight:700;font-size:16px;font-family:'Tajawal',sans-serif;cursor:pointer;}
+  .btn:hover{filter:brightness(1.06);}
+  .result{display:none;margin-top:20px;padding-top:20px;border-top:1px solid var(--line);text-align:center;}
+  .result.show{display:block;}
+  .result .big{font-family:'Cairo',sans-serif;font-weight:800;font-size:34px;color:var(--brand-deep);}
+  .result .big small{font-size:15px;font-weight:600;color:var(--ink-soft);}
+  .result .caption{color:var(--ink-soft);font-size:14px;margin-top:4px;}
+  .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;}
+  .result-tile{background:#FAFBF9;border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center;}
+  .result-tile .n{font-family:'Cairo',sans-serif;font-weight:800;font-size:19px;color:var(--brand-deep);}
+  .result-tile .l{font-size:11.5px;color:var(--ink-soft);margin-top:2px;}
+  .portion-note{background:#FAFBF9;border:1px dashed var(--line);border-radius:10px;padding:12px 14px;margin-top:14px;font-size:13.5px;color:var(--ink-soft);text-align:left;}
+  .portion-note strong{color:var(--ink);}
+
+  .card{background:var(--brand-deep);color:#fff;border-radius:16px;padding:24px;margin:28px 0;text-align:center;}
+  .card h2{color:#fff;font-size:19px;margin-top:0;}
+  .card p{color:#CFE0D5;margin:8px 0 14px;font-size:14px;}
+  .cta{display:inline-block;background:var(--energy);color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;text-decoration:none;}
+  footer{border-top:1px solid var(--line);padding:24px 0;color:var(--ink-soft);font-size:13px;text-align:center;}
+
+  ul{color:var(--ink);padding-left:20px;}
+  li{margin-bottom:6px;}
+
+  @media(max-width:480px){.row2{grid-template-columns:1fr;}.result-grid{grid-template-columns:1fr;}}
+
+  .printables{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0 28px;}
+  .printable-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px 16px;text-align:center;text-decoration:none;box-shadow:0 1px 2px rgba(22,35,28,.04);transition:transform .15s ease, box-shadow .15s ease;}
+  .printable-card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(22,35,28,.10);}
+  .printable-card .picon{font-size:30px;margin-bottom:10px;}
+  .printable-card .ptitle{font-family:'Cairo',sans-serif;font-weight:800;font-size:15px;color:var(--brand-deep);margin-bottom:6px;}
+  .printable-card .pdesc{font-size:12.5px;color:var(--ink-soft);line-height:1.6;margin-bottom:12px;}
+  .printable-card .pbtn{display:inline-block;background:var(--brand);color:#fff;font-size:12.5px;font-weight:700;padding:8px 14px;border-radius:8px;}
+  @media(max-width:640px){.printables{grid-template-columns:1fr;}}
+
+  /* Password gate */
+  #lockScreen{position:fixed;inset:0;background:linear-gradient(160deg,var(--brand) 0%,var(--brand-deep) 100%);display:flex;align-items:center;justify-content:center;z-index:9999;padding:20px;}
+  #lockScreen .lockCard{background:var(--paper);border-radius:20px;padding:32px 28px;max-width:360px;width:100%;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.25);}
+  #lockScreen .lockIcon{font-size:38px;margin-bottom:10px;}
+  #lockScreen h2{margin:0 0 6px;font-size:20px;color:var(--brand-deep);}
+  #lockScreen p{color:var(--ink-soft);font-size:13.5px;margin:0 0 18px;}
+  #lockScreen input{width:100%;padding:12px 14px;border-radius:11px;border:1.5px solid var(--line);background:#FFFBF7;font-family:'Tajawal',sans-serif;font-size:15px;color:var(--ink);text-align:center;margin-bottom:12px;}
+  #lockScreen input:focus{outline:none;border-color:var(--brand);}
+  #lockScreen button{width:100%;padding:12px;border:none;border-radius:11px;background:var(--energy);color:#fff;font-weight:700;font-size:15px;font-family:'Tajawal',sans-serif;cursor:pointer;}
+  #lockScreen button:hover{filter:brightness(1.06);}
+  #lockScreen .lockErr{color:#D24545;font-size:12.5px;margin-top:10px;display:none;}
+  body.locked{overflow:hidden;}
+</style>
+<link rel="stylesheet" href="menu.css">
+</head>
+<body>
+
+<div id="lockScreen">
+  <div class="lockCard">
+    <div class="lockIcon">🔒</div>
+    <h2>Members Only</h2>
+    <p>This page is password protected. Enter the password to continue.</p>
+    <input type="password" id="lockInput" placeholder="Password" autofocus>
+    <button type="button" onclick="checkLockPassword()">Unlock</button>
+    <div class="lockErr" id="lockErr">Wrong password — try again.</div>
+  </div>
+</div>
+
+<header><div class="wrap"><a href="index.html" class="logo">Saarati<span>.</span></a></div></header>
+
+<article>
+  <div class="wrap">
+    <span class="art-tag">Calculator</span>
+    <h1>Cat Calorie Calculator</h1>
+    <div class="meta">Free tool · based on the standard veterinary formula</div>
+
+    <p>Most cats are fed by guesswork — a scoop here, a handful there — which is how so many end up overweight or underweight without their owner noticing until it's obvious. The calculation below uses the same resting-energy formula veterinarians use, adjusted for your cat's age, activity, and goal, to give you an actual daily calorie target instead of a guess.</p>
+
+    <div class="calc-card">
+      <div class="seg" id="unitSeg">
+        <button type="button" class="active" onclick="setUnit('lb', this)">Pounds</button>
+        <button type="button" onclick="setUnit('kg', this)">Kilograms</button>
+      </div>
+
+      <div class="field">
+        <label id="weightLabel">Cat's weight (lb)</label>
+        <input type="number" id="weight" placeholder="e.g. 10" min="0.5" step="0.1">
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label>Life stage</label>
+          <select id="lifeStage" onchange="toggleGoal()">
+            <option value="kitten1">Kitten — under 4 months</option>
+            <option value="kitten2">Kitten — 4–12 months</option>
+            <option value="adult" selected>Adult — 1–7 years</option>
+            <option value="senior">Senior — 7+ years</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Spayed / neutered</label>
+          <select id="neutered">
+            <option value="yes" selected>Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field" id="goalField">
+        <label>Goal</label>
+        <select id="goal">
+          <option value="maintain" selected>Maintain current weight</option>
+          <option value="lose">Lose weight</option>
+          <option value="gain">Gain weight / underweight</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Calories per cup or per 100g of your food (optional — check the bag label)</label>
+        <input type="number" id="kcalPerUnit" placeholder="e.g. 350">
+      </div>
+
+      <button class="btn" onclick="calcCalories()">Calculate daily calories</button>
+
+      <div class="result" id="resultBox">
+        <div class="big" id="kcalResult">0 <small>kcal / day</small></div>
+        <div class="caption" id="kcalCaption"></div>
+        <div class="result-grid">
+          <div class="result-tile">
+            <div class="n" id="perMeal2">–</div>
+            <div class="l">Per meal (2x/day)</div>
+          </div>
+          <div class="result-tile">
+            <div class="n" id="perMeal3">–</div>
+            <div class="l">Per meal (3x/day)</div>
+          </div>
+        </div>
+        <div class="portion-note" id="portionNote" style="display:none;"></div>
+      </div>
+    </div>
+
+    <h2>How this is calculated</h2>
+    <p>The starting point is a cat's <strong>resting energy requirement (RER)</strong> — the calories it would burn doing nothing at all — worked out from body weight using the formula <strong>70 × (weight in kg) <sup>0.75</sup></strong>. From there, a multiplier is applied based on life stage, spay/neuter status, and goal:</p>
+    <ul>
+      <li><strong>Kittens under 4 months</strong> need roughly 3x their RER to fuel rapid growth.</li>
+      <li><strong>Kittens 4–12 months</strong> need about 2x RER as growth slows.</li>
+      <li><strong>Neutered adult cats</strong> maintain weight around 1.2x RER; intact adults run a bit higher, near 1.4x.</li>
+      <li><strong>Weight loss</strong> targets sit closer to 1x RER, with the plan re-checked as weight changes.</li>
+      <li><strong>Weight gain</strong> for underweight cats runs higher, around 1.4–1.6x RER.</li>
+      <li><strong>Senior cats</strong> usually need slightly less than a younger adult at the same weight.</li>
+    </ul>
+
+    <h2>Free Printables</h2>
+    <p>Track what the calculator gives you with these free printable PDFs — download, print, and fill in by hand.</p>
+    <div class="printables">
+      <a class="printable-card" href="cat-feeding-schedule-1.pdf" target="_blank" rel="noopener">
+        <div class="picon">🍽️</div>
+        <div class="ptitle">Cat Feeding Schedule</div>
+        <div class="pdesc">Plan daily meals, portions, and calories per feeding time.</div>
+        <span class="pbtn">Download PDF</span>
+      </a>
+      <a class="printable-card" href="cat-weight-tracker-1.pdf" target="_blank" rel="noopener">
+        <div class="picon">⚖️</div>
+        <div class="ptitle">Cat Weight Tracker</div>
+        <div class="pdesc">A 12-month log to monitor your cat's weight and monthly goals.</div>
+        <span class="pbtn">Download PDF</span>
+      </a>
+      <a class="printable-card" href="cat-vaccination-vet-log-1.pdf" target="_blank" rel="noopener">
+        <div class="picon">💉</div>
+        <div class="ptitle">Vaccination &amp; Vet Log</div>
+        <div class="pdesc">Keep a record of vaccines, vet visits, and next due dates.</div>
+        <span class="pbtn">Download PDF</span>
+      </a>
+    </div>
+
+    <div class="card">
+      <h2>Want the full guide?</h2>
+      <p>This calculator is one tool from The Complete Cat Guide — nutrition, health, behavior, and daily care all in one place.</p>
+      <a href="https://www.getly.store/product/the-complete-cat-care-guide" class="cta" target="_blank" rel="noopener">Get the guide</a>
+    </div>
+  </div>
+</article>
+
+<footer><div class="wrap">This tool is for general guidance only and is not a substitute for advice from your veterinarian, especially for cats with a medical condition.</div></footer>
+
+<script src="menu.js"></script>
+<script>
+  // ---- Page password gate ----
+  // Change PAGE_PASSWORD to whatever password you want for this page only.
+  const PAGE_PASSWORD = "cat2026";
+
+  function unlockPage(){
+    document.getElementById('lockScreen').style.display = 'none';
+    document.body.classList.remove('locked');
+  }
+
+  function checkLockPassword(){
+    const val = document.getElementById('lockInput').value;
+    if(val === PAGE_PASSWORD){
+      sessionStorage.setItem('catCalcUnlocked', '1');
+      unlockPage();
+    } else {
+      document.getElementById('lockErr').style.display = 'block';
+    }
+  }
+
+  document.getElementById('lockInput').addEventListener('keydown', function(e){
+    if(e.key === 'Enter') checkLockPassword();
+  });
+
+  if(sessionStorage.getItem('catCalcUnlocked') === '1'){
+    unlockPage();
+  } else {
+    document.body.classList.add('locked');
+  }
+  // ---- End password gate ----
+
+  let currentUnit = 'lb';
+  function setUnit(u, btn){
+    currentUnit = u;
+    document.querySelectorAll('#unitSeg button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('weightLabel').textContent = u==='lb' ? "Cat's weight (lb)" : "Cat's weight (kg)";
+  }
+
+  function toggleGoal(){
+    const stage = document.getElementById('lifeStage').value;
+    document.getElementById('goalField').style.display = (stage === 'adult' || stage === 'senior') ? 'block' : 'none';
+  }
+  toggleGoal();
+
+  function calcCalories(){
+    const wRaw = parseFloat(document.getElementById('weight').value);
+    if(!wRaw || wRaw <= 0){
+      alert("Enter your cat's weight first.");
+      return;
+    }
+    const wKg = currentUnit === 'lb' ? wRaw * 0.453592 : wRaw;
+    const stage = document.getElementById('lifeStage').value;
+    const neutered = document.getElementById('neutered').value;
+    const goal = document.getElementById('goal').value;
+
+    const RER = 70 * Math.pow(wKg, 0.75);
+
+    let factor = 1.2;
+    let capNote = "Maintenance energy for a neutered adult cat.";
+
+    if(stage === 'kitten1'){
+      factor = 3.0;
+      capNote = "Growth energy for a kitten under 4 months.";
+    } else if(stage === 'kitten2'){
+      factor = 2.0;
+      capNote = "Growth energy for a kitten 4–12 months.";
+    } else if(stage === 'senior'){
+      factor = neutered === 'yes' ? 1.1 : 1.3;
+      capNote = "Maintenance energy for a senior cat.";
+      if(goal === 'lose'){ factor = 1.0; capNote = "Weight-loss target for a senior cat."; }
+      if(goal === 'gain'){ factor = 1.4; capNote = "Weight-gain target for a senior cat."; }
+    } else {
+      factor = neutered === 'yes' ? 1.2 : 1.4;
+      capNote = neutered === 'yes' ? "Maintenance energy for a neutered adult cat." : "Maintenance energy for an intact adult cat.";
+      if(goal === 'lose'){ factor = 1.0; capNote = "Weight-loss target — recheck your cat's weight every 2 weeks."; }
+      if(goal === 'gain'){ factor = 1.6; capNote = "Weight-gain target for an underweight cat."; }
+    }
+
+    const kcal = Math.round(RER * factor);
+
+    document.getElementById('kcalResult').innerHTML = kcal + ' <small>kcal / day</small>';
+    document.getElementById('kcalCaption').textContent = capNote;
+    document.getElementById('perMeal2').textContent = Math.round(kcal/2) + ' kcal';
+    document.getElementById('perMeal3').textContent = Math.round(kcal/3) + ' kcal';
+
+    const kcalPerUnit = parseFloat(document.getElementById('kcalPerUnit').value);
+    const noteEl = document.getElementById('portionNote');
+    if(kcalPerUnit && kcalPerUnit > 0){
+      const units = (kcal / kcalPerUnit).toFixed(2);
+      noteEl.style.display = 'block';
+      noteEl.innerHTML = '<strong>Roughly ' + units + '</strong> cups (or 100g servings — whichever your input matched) of this food per day, split across meals.';
+    } else {
+      noteEl.style.display = 'none';
+    }
+
+    document.getElementById('resultBox').classList.add('show');
+  }
+</script>
+
+</body>
+</html>
