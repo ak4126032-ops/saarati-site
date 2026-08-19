@@ -179,6 +179,24 @@
   .art-card h3{font-size:17px;font-weight:700;line-height:1.5;}
   .art-card p{font-size:14px;color:var(--ink-soft);margin:0;}
 
+  #prayer-times-section{padding:0 0 56px;}
+  .pt-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:24px 26px;}
+  .pt-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
+  .pt-head h3{font-size:19px;font-weight:800;}
+  .pt-location{font-size:13px;color:var(--ink-soft);}
+  .pt-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;}
+  .pt-item{
+    background:var(--bg);border-radius:14px;padding:14px 8px;text-align:center;
+    display:flex;flex-direction:column;gap:6px;
+  }
+  .pt-item.active{background:var(--energy-soft);}
+  .pt-name{font-size:13px;font-weight:700;color:var(--brand-deep);}
+  .pt-time{font-size:16px;font-weight:700;color:var(--ink);}
+  .pt-next{margin:16px 2px 0;font-size:14px;color:var(--brand);font-weight:700;}
+  @media (max-width:640px){
+    .pt-grid{grid-template-columns:repeat(3,1fr);}
+  }
+
   .about-strip{background:var(--brand-deep);color:#fff;border-radius:24px;padding:40px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;}
   .about-strip h2{color:#fff;font-size:22px;}
   .about-strip p{color:#CFE0D5;margin-top:8px;max-width:52ch;}
@@ -429,6 +447,11 @@
         <h3>7 نصائح فعّالة لزيادة الوزن وبناء العضلات</h3>
         <p>فائض سعرات مدروس مع تمارين مقاومة صحيحة.</p>
       </a>
+      <a class="art-card" href="article-calc-cat-calories-1.html">
+        <span class="art-tag">حيوانات أليفة</span>
+        <h3>حاسبة سعرات القطط: كم يحتاج قطك يوميًا؟</h3>
+        <p>احسب احتياج قطتك اليومي من السعرات مع جداول تغذية ومتابعة قابلة للتحميل.</p>
+      </a>
     </div>
   </div>
 </section>
@@ -523,197 +546,26 @@
   </div>
 </section>
 
-<!-- ====================== قسم: مباريات اليوم — ابدأ النسخ من هنا ====================== -->
-<section id="today-matches" class="tm-wrap">
-  <style>
-    #today-matches{
-      --bg:#F1F3EE; --paper:#FFFFFF; --ink:#16231C; --ink-soft:#4B5A50;
-      --brand:#2F5D46; --brand-deep:#1E3E30; --energy:#E2572B; --energy-soft:#F6D9CC;
-      --line:#DCE2D8;
-      font-family:'Tajawal',sans-serif; direction:rtl; color:var(--ink);
-      max-width:880px; margin:0 auto; padding:32px 16px;
-    }
-    #today-matches h2{
-      font-family:'Cairo',sans-serif; color:var(--brand-deep); font-weight:800;
-      font-size:24px; margin:0 0 4px;
-    }
-    #today-matches .tm-date{ color:var(--ink-soft); font-size:14px; margin:0 0 20px; }
-    #today-matches .tm-status{
-      text-align:center; color:var(--ink-soft); padding:30px 10px; font-size:15px;
-    }
-    #today-matches .tm-league{
-      display:flex; align-items:center; gap:8px; margin:22px 0 10px;
-      font-family:'Cairo',sans-serif; font-weight:700; font-size:14px; color:var(--brand);
-    }
-    #today-matches .tm-league::before{
-      content:""; width:6px; height:6px; border-radius:50%; background:var(--energy); flex:none;
-    }
-    #today-matches .tm-card{
-      background:var(--paper); border:1px solid var(--line); border-radius:14px;
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 16px; margin-bottom:10px; gap:10px;
-    }
-    #today-matches .tm-team{
-      flex:1; display:flex; align-items:center; gap:10px; min-width:0;
-    }
-    #today-matches .tm-team.away{ flex-direction:row-reverse; text-align:left; }
-    #today-matches .tm-badge{
-      width:30px; height:30px; border-radius:50%; flex:none; object-fit:contain;
-      background:var(--bg); border:1px solid var(--line);
-    }
-    #today-matches .tm-badge-fallback{
-      width:30px; height:30px; border-radius:50%; flex:none; background:var(--brand);
-      color:#fff; font-family:'Cairo',sans-serif; font-weight:700; font-size:13px;
-      display:flex; align-items:center; justify-content:center;
-    }
-    #today-matches .tm-team-name{
-      font-size:14px; font-weight:600; overflow:hidden; text-overflow:ellipsis;
-      white-space:nowrap;
-    }
-    #today-matches .tm-mid{
-      flex:none; text-align:center; min-width:64px;
-    }
-    #today-matches .tm-time{
-      font-family:'Cairo',sans-serif; font-weight:800; font-size:15px; color:var(--brand-deep);
-    }
-    #today-matches .tm-score{
-      font-family:'Cairo',sans-serif; font-weight:800; font-size:16px; color:var(--energy);
-    }
-    #today-matches .tm-live{
-      display:inline-block; margin-top:2px; font-size:10px; font-weight:700;
-      color:#fff; background:var(--energy); border-radius:6px; padding:1px 6px;
-    }
-    #today-matches .tm-refresh{
-      display:block; margin:18px auto 0; background:none; border:1px solid var(--line);
-      color:var(--ink-soft); font-family:'Tajawal',sans-serif; font-size:13px;
-      padding:8px 18px; border-radius:20px; cursor:pointer;
-    }
-    #today-matches .tm-refresh:hover{ border-color:var(--brand); color:var(--brand); }
-    @media (max-width:480px){
-      #today-matches .tm-team-name{ font-size:12.5px; }
-      #today-matches .tm-card{ padding:10px 10px; }
-    }
-  </style>
-
-  <h2>⚽ مباريات اليوم</h2>
-  <p class="tm-date" id="tm-date"></p>
-  <div id="tm-content">
-    <p class="tm-status">جاري تحميل المباريات...</p>
+<section id="prayer-times-section">
+  <div class="wrap">
+    <div class="pt-card">
+      <div class="pt-head">
+        <h3>🕌 مواقيت الصلاة</h3>
+        <span id="ptLocationLabel" class="pt-location">جاري تحديد الموقع...</span>
+      </div>
+      <div id="ptGrid" class="pt-grid">
+        <div class="pt-item"><span class="pt-name">الفجر</span><span class="pt-time num" id="ptFajr">--:--</span></div>
+        <div class="pt-item"><span class="pt-name">الشروق</span><span class="pt-time num" id="ptSunrise">--:--</span></div>
+        <div class="pt-item"><span class="pt-name">الظهر</span><span class="pt-time num" id="ptDhuhr">--:--</span></div>
+        <div class="pt-item"><span class="pt-name">العصر</span><span class="pt-time num" id="ptAsr">--:--</span></div>
+        <div class="pt-item"><span class="pt-name">المغرب</span><span class="pt-time num" id="ptMaghrib">--:--</span></div>
+        <div class="pt-item"><span class="pt-name">العشاء</span><span class="pt-time num" id="ptIsha">--:--</span></div>
+      </div>
+      <p id="ptNext" class="pt-next"></p>
+    </div>
   </div>
-  <button class="tm-refresh" id="tm-refresh-btn">تحديث الجدول</button>
-
-  <script>
-  (function(){
-    // === إعدادات يمكنك تعديلها ===
-    var API_KEY = "3"; // مفتاح تجريبي مجاني من TheSportsDB — راجع الشرح تحت الكود لاستبداله بمفتاح شخصي
-    // البطولات التي تريد إظهارها أولاً (اتركها فارغة [] لإظهار كل المباريات كما وردت من المصدر)
-    var PRIORITY_LEAGUES = [
-      "Saudi Arabian Pro League", "UEFA Champions League", "English Premier League",
-      "Spanish La Liga", "Italian Serie A", "French Ligue 1", "German Bundesliga",
-      "AFC Champions League", "Egyptian Premier League", "FIFA World Cup"
-    ];
-
-    var elContent = document.getElementById('tm-content');
-    var elDate = document.getElementById('tm-date');
-    var btnRefresh = document.getElementById('tm-refresh-btn');
-
-    function todayISO(){
-      var d = new Date();
-      var y = d.getFullYear();
-      var m = String(d.getMonth()+1).padStart(2,'0');
-      var day = String(d.getDate()).padStart(2,'0');
-      return y+'-'+m+'-'+day;
-    }
-
-    function formatLocalTime(strTimestampUTC){
-      if(!strTimestampUTC) return '—';
-      var d = new Date(strTimestampUTC.replace(' ', 'T') + 'Z');
-      if(isNaN(d.getTime())) return '—';
-      return d.toLocaleTimeString('ar-EG', { hour:'2-digit', minute:'2-digit' });
-    }
-
-    function teamBadge(url, name){
-      if(url){
-        return '<img class="tm-badge" src="'+url+'" alt="" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement(\'div\'),{className:\'tm-badge-fallback\',textContent:\''+(name?name[0]:'?')+'\'}))">';
-      }
-      return '<div class="tm-badge-fallback">'+(name?name[0]:'?')+'</div>';
-    }
-
-    function renderMatches(events){
-      if(!events || events.length === 0){
-        elContent.innerHTML = '<p class="tm-status">لا توجد مباريات مسجلة لهذا اليوم حتى الآن.</p>';
-        return;
-      }
-
-      // ترتيب: البطولات ذات الأولوية أولاً، ثم الباقي
-      events.sort(function(a,b){
-        var ia = PRIORITY_LEAGUES.indexOf(a.strLeague);
-        var ib = PRIORITY_LEAGUES.indexOf(b.strLeague);
-        ia = ia === -1 ? 999 : ia;
-        ib = ib === -1 ? 999 : ib;
-        if(ia !== ib) return ia - ib;
-        return (a.strTimestamp||'').localeCompare(b.strTimestamp||'');
-      });
-
-      var groups = {};
-      var order = [];
-      events.forEach(function(ev){
-        var league = ev.strLeague || 'أخرى';
-        if(!groups[league]){ groups[league] = []; order.push(league); }
-        groups[league].push(ev);
-      });
-
-      var html = '';
-      order.forEach(function(league){
-        html += '<div class="tm-league">'+league+'</div>';
-        groups[league].forEach(function(ev){
-          var isLive = ev.strStatus && /1H|2H|LIVE|ET|BT/i.test(ev.strStatus);
-          var hasScore = ev.intHomeScore !== null && ev.intHomeScore !== undefined && ev.intHomeScore !== "";
-          var midHTML = hasScore
-            ? '<div class="tm-score">'+ev.intHomeScore+' - '+ev.intAwayScore+'</div>' + (isLive ? '<span class="tm-live">مباشر</span>' : '')
-            : '<div class="tm-time">'+formatLocalTime(ev.strTimestamp)+'</div>';
-
-          html += '' +
-            '<div class="tm-card">' +
-              '<div class="tm-team home">' +
-                teamBadge(ev.strHomeTeamBadge, ev.strHomeTeam) +
-                '<span class="tm-team-name">'+ev.strHomeTeam+'</span>' +
-              '</div>' +
-              '<div class="tm-mid">'+midHTML+'</div>' +
-              '<div class="tm-team away">' +
-                teamBadge(ev.strAwayTeamBadge, ev.strAwayTeam) +
-                '<span class="tm-team-name">'+ev.strAwayTeam+'</span>' +
-              '</div>' +
-            '</div>';
-        });
-      });
-      elContent.innerHTML = html;
-    }
-
-    function loadMatches(){
-      elContent.innerHTML = '<p class="tm-status">جاري تحميل المباريات...</p>';
-      var d = todayISO();
-      elDate.textContent = new Date().toLocaleDateString('ar-EG', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
-
-      var url = 'https://www.thesportsdb.com/api/v1/json/' + API_KEY + '/eventsday.php?d=' + d + '&s=Soccer';
-
-      fetch(url)
-        .then(function(res){ return res.json(); })
-        .then(function(data){ renderMatches(data.events); })
-        .catch(function(err){
-          elContent.innerHTML = '<p class="tm-status">تعذّر تحميل بيانات المباريات حالياً، حاول التحديث بعد قليل.</p>';
-          console.error('tm-matches error:', err);
-        });
-    }
-
-    btnRefresh.addEventListener('click', loadMatches);
-    loadMatches();
-    // تحديث تلقائي كل 5 دقائق أثناء بقاء الصفحة مفتوحة (لتحديث النتائج الحيّة)
-    setInterval(loadMatches, 5 * 60 * 1000);
-  })();
-  </script>
 </section>
-<!-- ====================== نهاية القسم ====================== -->
+
 
 
 <div class="promo-box" style="max-width:760px;margin:32px auto;padding:0 24px;">
@@ -778,6 +630,105 @@ document.querySelectorAll('#genderSeg button').forEach(b=>{
     b.classList.add('active');
   });
 });
+</script>
+
+<script>
+(function(){
+  var PRAYER_NAMES = {
+    Fajr:'ptFajr', Sunrise:'ptSunrise', Dhuhr:'ptDhuhr',
+    Asr:'ptAsr', Maghrib:'ptMaghrib', Isha:'ptIsha'
+  };
+  var ORDER = ['Fajr','Sunrise','Dhuhr','Asr','Maghrib','Isha'];
+  var CACHE_KEY = 'sr_prayer_cache_v1';
+
+  function fmtTime(t){
+    // API returns "HH:MM (TZ)" — strip timezone suffix
+    var clean = t.split(' ')[0];
+    var parts = clean.split(':');
+    var h = parseInt(parts[0],10), m = parts[1];
+    var suffix = h >= 12 ? 'م' : 'ص';
+    var h12 = h % 12; if(h12 === 0) h12 = 12;
+    return h12 + ':' + m + ' ' + suffix;
+  }
+
+  function render(timings, locationLabel){
+    ORDER.forEach(function(key){
+      var el = document.getElementById(PRAYER_NAMES[key]);
+      if(el && timings[key]) el.textContent = fmtTime(timings[key]);
+    });
+    document.getElementById('ptLocationLabel').textContent = locationLabel;
+    highlightNext(timings);
+  }
+
+  function highlightNext(timings){
+    var now = new Date();
+    var nowMins = now.getHours()*60 + now.getMinutes();
+    var upcoming = null;
+    var main = ['Fajr','Dhuhr','Asr','Maghrib','Isha'];
+    for(var i=0;i<main.length;i++){
+      var key = main[i];
+      var clean = timings[key].split(' ')[0];
+      var p = clean.split(':');
+      var mins = parseInt(p[0],10)*60 + parseInt(p[1],10);
+      document.getElementById(PRAYER_NAMES[key]).parentElement.classList.remove('active');
+      if(mins > nowMins && !upcoming){ upcoming = key; }
+    }
+    if(!upcoming){ upcoming = 'Fajr'; }
+    var el = document.getElementById(PRAYER_NAMES[upcoming]);
+    if(el) el.parentElement.classList.add('active');
+    var labelMap = {Fajr:'الفجر',Dhuhr:'الظهر',Asr:'العصر',Maghrib:'المغرب',Isha:'العشاء'};
+    document.getElementById('ptNext').textContent = 'الصلاة القادمة: ' + labelMap[upcoming];
+  }
+
+  function fetchByCoords(lat, lon){
+    fetch('https://api.aladhan.com/v1/timings?latitude=' + lat + '&longitude=' + lon + '&method=4')
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        if(data && data.data && data.data.timings){
+          render(data.data.timings, 'حسب موقعك الحالي');
+          try{
+            localStorage.setItem(CACHE_KEY, JSON.stringify({timings:data.data.timings, label:'حسب موقعك الحالي', ts:Date.now()}));
+          }catch(e){}
+        }
+      })
+      .catch(function(){ fetchByCity(); });
+  }
+
+  function fetchByCity(){
+    // fallback: Riyadh
+    fetch('https://api.aladhan.com/v1/timingsByCity?city=Riyadh&country=SaudiArabia&method=4')
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        if(data && data.data && data.data.timings){
+          render(data.data.timings, 'الرياض (افتراضي)');
+        }
+      })
+      .catch(function(){
+        document.getElementById('ptLocationLabel').textContent = 'تعذر تحميل المواقيت';
+      });
+  }
+
+  function init(){
+    try{
+      var cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+      if(cached && (Date.now() - cached.ts) < 12*3600*1000){
+        render(cached.timings, cached.label);
+      }
+    }catch(e){}
+
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(
+        function(pos){ fetchByCoords(pos.coords.latitude, pos.coords.longitude); },
+        function(){ fetchByCity(); },
+        {timeout:6000}
+      );
+    } else {
+      fetchByCity();
+    }
+  }
+
+  init();
+})();
 </script>
 
 <script src="menu.js" defer></script>
