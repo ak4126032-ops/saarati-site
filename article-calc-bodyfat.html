@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFQDJ0TW9H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+
+  gtag("config", "G-YFQDJ0TW9H");
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حاسبة نسبة الدهون في الجسم مجاناً (طريقة البحرية الأمريكية) | سعراتي</title>
+<meta name="description" content="احسب نسبة الدهون في جسمك مجاناً بدقة تقريبية باستخدام محيط الرقبة والخصر والطول، بدون أجهزة قياس.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F1F3EE;--paper:#FFFFFF;--ink:#16231C;--ink-soft:#4B5A50;--brand:#2F5D46;--brand-deep:#1E3E30;--energy:#E2572B;--line:#DCE2D8;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Tajawal',sans-serif;line-height:1.9;}
+  h1,h2{font-family:'Cairo',sans-serif;color:var(--brand-deep);}
+  a{color:var(--brand);}
+  header{padding:22px 0;border-bottom:1px solid var(--line);}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+  header .wrap{max-width:1120px;display:flex;justify-content:space-between;align-items:center;}
+  .logo{font-family:'Cairo',sans-serif;font-weight:800;font-size:20px;color:var(--brand-deep);text-decoration:none;}
+  .logo span{color:var(--energy);}
+  article{padding:44px 0;}
+  .art-tag{font-size:13px;font-weight:700;color:var(--brand);background:#E2ECE4;padding:5px 12px;border-radius:999px;}
+  h1{font-size:clamp(26px,4vw,36px);margin:18px 0 8px;line-height:1.4;}
+  .meta{color:var(--ink-soft);font-size:14px;margin-bottom:24px;}
+  p{color:var(--ink);}
+  h2{font-size:20px;margin-top:32px;}
+
+  .calc-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px;margin:24px 0;box-shadow:0 1px 2px rgba(22,35,28,.04), 0 12px 32px rgba(22,35,28,.08);}
+  .field{margin-bottom:14px;}
+  .field label{display:block;font-size:13px;font-weight:700;color:var(--ink-soft);margin-bottom:6px;}
+  .field input, .field select{width:100%;padding:12px 14px;border-radius:11px;border:1.5px solid var(--line);background:#FAFBF9;font-family:'Tajawal',sans-serif;font-size:15px;color:var(--ink);}
+  .field input:focus, .field select:focus{outline:none;border-color:var(--brand);}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .seg{display:flex;background:#EEF1EB;border-radius:12px;padding:4px;gap:4px;margin-bottom:14px;}
+  .seg button{flex:1;padding:10px;border:none;border-radius:9px;background:transparent;font-family:'Tajawal',sans-serif;font-weight:700;font-size:14px;color:var(--ink-soft);cursor:pointer;}
+  .seg button.active{background:var(--brand);color:#fff;}
+  .btn{width:100%;padding:14px;border:none;border-radius:12px;background:var(--energy);color:#fff;font-weight:700;font-size:16px;font-family:'Tajawal',sans-serif;cursor:pointer;}
+  .btn:hover{filter:brightness(1.06);}
+  .result{display:none;margin-top:20px;padding-top:20px;border-top:1px solid var(--line);text-align:center;}
+  .result.show{display:block;}
+  .result .big{font-family:'Cairo',sans-serif;font-weight:800;font-size:34px;color:var(--brand-deep);}
+  .result .big small{font-size:15px;font-weight:600;color:var(--ink-soft);}
+  .result .caption{color:var(--ink-soft);font-size:14px;margin-top:4px;}
+
+  .card{background:var(--brand-deep);color:#fff;border-radius:16px;padding:24px;margin:28px 0;text-align:center;}
+  .card h2{color:#fff;font-size:19px;margin-top:0;}
+  .card p{color:#CFE0D5;margin:8px 0 14px;font-size:14px;}
+  .cta{display:inline-block;background:var(--energy);color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;text-decoration:none;}
+  footer{border-top:1px solid var(--line);padding:24px 0;color:var(--ink-soft);font-size:13px;text-align:center;}
+
+  .product-reco{display:flex;gap:16px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px;margin:20px 0;}
+  .product-reco img{width:88px;height:88px;object-fit:cover;border-radius:12px;flex-shrink:0;}
+  .product-reco .pr-body{flex:1;min-width:0;}
+  .product-reco .pr-label{font-size:12px;font-weight:700;color:var(--brand);background:#E2ECE4;padding:3px 10px;border-radius:999px;display:inline-block;margin-bottom:8px;}
+  .product-reco .pr-name{font-weight:700;font-size:15px;margin:0 0 10px;line-height:1.5;color:var(--ink);}
+  .product-reco .pr-btn{display:inline-block;background:var(--energy);color:#fff;padding:9px 18px;border-radius:9px;font-weight:700;font-size:13px;text-decoration:none;}
+  .product-reco .pr-btn:hover{filter:brightness(1.06);}
+  @media(max-width:480px){.product-reco{flex-direction:column;text-align:center;}.product-reco img{width:120px;height:120px;}.row2{grid-template-columns:1fr;}}
+
+</style>
+<link rel="stylesheet" href="menu.css">
+</head>
+<body>
+
+<header><div class="wrap"><a href="index.html" class="logo">سعرات<span>ي</span></a></div></header>
+
+<article>
+  <div class="wrap">
+    <span class="art-tag">حاسبة</span>
+    <h1>حاسبة نسبة الدهون في الجسم</h1>
+    <div class="meta">أداة مجانية</div>
+
+    <p>احسب نسبة الدهون التقريبية في جسمك بدون أي أجهزة، فقط بقياسات بسيطة بشريط قياس عادي.</p>
+
+    <div class="calc-card">
+      <div class="seg" id="genderSeg">
+        <button class="active" data-val="male" onclick="setGender(this,'male')">ذكر</button>
+        <button data-val="female" onclick="setGender(this,'female')">أنثى</button>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>الطول (سم)</label>
+          <input type="number" id="height" placeholder="مثال: 175">
+        </div>
+        <div class="field">
+          <label>محيط الرقبة (سم)</label>
+          <input type="number" id="neck" placeholder="مثال: 38">
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>محيط الخصر (سم)</label>
+          <input type="number" id="waist" placeholder="مثال: 85">
+        </div>
+        <div class="field" id="hipField" style="display:none;">
+          <label>محيط الورك (سم)</label>
+          <input type="number" id="hip" placeholder="مثال: 95">
+        </div>
+      </div>
+      <button class="btn" onclick="calcBodyFat()">احسب نسبة الدهون</button>
+
+      <div class="result" id="resultBox">
+        <div class="big" id="resultNum">0<small>%</small></div>
+        <div class="caption" id="resultCaption"></div>
+      </div>
+    </div>
+
+    <h2>إزاي بنحسب نسبة الدهون بالطريقة دي؟</h2>
+    <p>الحاسبة تستخدم معادلة البحرية الأمريكية (US Navy Method)، وهي من أشهر الطرق لتقدير نسبة الدهون بدون أجهزة، بالاعتماد على قياسات محيط الجسم فقط. النتيجة تقريبية وممكن تختلف شوي عن أجهزة القياس الدقيقة، لكنها مؤشر جيد لمتابعة تقدمك بمرور الوقت.</p>
+
+    <h2>إزاي تاخذ القياسات صح؟</h2>
+    <p>قِس محيط الرقبة أسفل تفاحة آدم مباشرة، ومحيط الخصر عند أضيق نقطة (أو عند السرة)، ومحيط الورك عند أعرض نقطة (للنساء). استخدم شريط قياس مرن وشدّه بشكل خفيف بدون ضغط.</p>
+
+    <div class="product-reco">
+      <img src="products/product-foot-puller.jpg" alt="ساحبة قدم متعددة الوظائف" loading="lazy">
+      <div class="pr-body">
+        <span class="pr-label">معدة ننصح بيها</span>
+        <p class="pr-name">ساحبة قدم متعددة الوظائف بخمسة مستويات مقاومة، مناسبة لتمارين الساق والبطن</p>
+        <a class="pr-btn" href="https://share.temu.com/UxlvmdIlokB" target="_blank" rel="nofollow sponsored noopener">شوف المنتج</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<div class="promo-box" style="max-width:760px;margin:32px auto;padding:0 24px;">
+  <div style="background:#fff;border:1px solid #DCE2D8;border-radius:16px;padding:16px;text-align:center;">
+    <div style="font-size:12px;color:#4B5A50;margin-bottom:10px;">إعلان</div>
+    <iframe data-aa='2451540' src='//acceptable.a-ads.com/2451540/?size=Adaptive'
+      style='border:0; padding:0; width:100%; height:auto; overflow:hidden;display:block;margin:0 auto;'
+      scrolling="no"></iframe>
+  </div>
+</div>
+
+<footer>© 2026 سعراتي — <a href="privacy.html">سياسة الخصوصية</a></footer>
+
+<script>
+let gender = 'male';
+function setGender(btn, val){
+  document.querySelectorAll('#genderSeg button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  gender = val;
+  document.getElementById('hipField').style.display = (val === 'female') ? 'block' : 'none';
+}
+function calcBodyFat(){
+  const height = parseFloat(document.getElementById('height').value);
+  const neck = parseFloat(document.getElementById('neck').value);
+  const waist = parseFloat(document.getElementById('waist').value);
+  const hip = parseFloat(document.getElementById('hip').value);
+
+  if(!height || !neck || !waist || (gender === 'female' && !hip)){
+    alert('الرجاء تعبئة كل الحقول المطلوبة');
+    return;
+  }
+
+  let bf;
+  if(gender === 'male'){
+    bf = 495 / (1.0324 - 0.19077*Math.log10(waist - neck) + 0.15456*Math.log10(height)) - 450;
+  } else {
+    bf = 495 / (1.29579 - 0.35004*Math.log10(waist + hip - neck) + 0.22100*Math.log10(height)) - 450;
+  }
+  bf = Math.max(3, Math.min(60, bf));
+
+  document.getElementById('resultNum').innerHTML = bf.toFixed(1) + '<small>%</small>';
+
+  let cat = '';
+  if(gender === 'male'){
+    if(bf < 6) cat = 'أقل من الطبيعي';
+    else if(bf < 14) cat = 'رياضي';
+    else if(bf < 18) cat = 'لياقة جيدة';
+    else if(bf < 25) cat = 'متوسط';
+    else cat = 'مرتفع';
+  } else {
+    if(bf < 14) cat = 'أقل من الطبيعي';
+    else if(bf < 21) cat = 'رياضية';
+    else if(bf < 25) cat = 'لياقة جيدة';
+    else if(bf < 32) cat = 'متوسط';
+    else cat = 'مرتفع';
+  }
+  document.getElementById('resultCaption').textContent = 'التصنيف: ' + cat + ' (تقدير تقريبي)';
+  document.getElementById('resultBox').classList.add('show');
+  document.getElementById('resultBox').scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+</script>
+
+<script src="menu.js" defer></script>
+</body>
+</html>

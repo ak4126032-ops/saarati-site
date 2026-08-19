@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFQDJ0TW9H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+
+  gtag("config", "G-YFQDJ0TW9H");
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>جدول الأغذية والبروتين — سعرات ودهون وكربوهيدرات كل طعام | سعراتي</title>
+<meta name="description" content="جدول شامل لأشهر الأطعمة يوضح السعرات الحرارية والبروتين والكربوهيدرات والدهون لكل 100 غرام، مع خاصية بحث سريعة.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800&family=Tajawal:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F1F3EE; --paper:#FFFFFF; --ink:#16231C; --ink-soft:#4B5A50;
+    --brand:#2F5D46; --brand-deep:#1E3E30; --energy:#E2572B; --line:#DCE2D8;
+    --protein:#2F5D46; --carb:#E2572B; --fat:#C99A3D;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Tajawal',sans-serif;line-height:1.8;}
+  h1,h2{font-family:'Cairo',sans-serif;color:var(--brand-deep);}
+  .num{font-family:'IBM Plex Sans Arabic',sans-serif;font-variant-numeric:tabular-nums;}
+  a{color:var(--brand);}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 20px;}
+  header{padding:20px 0;border-bottom:1px solid var(--line);}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;}
+  .logo{font-family:'Cairo',sans-serif;font-weight:800;font-size:20px;color:var(--brand-deep);text-decoration:none;}
+  .logo span{color:var(--energy);}
+  nav a{text-decoration:none;color:var(--ink-soft);font-weight:500;font-size:14px;margin-inline-start:20px;}
+
+  .hero{padding:36px 0 20px;}
+  .eyebrow{display:inline-block;font-size:13px;font-weight:700;color:var(--brand);background:#E2ECE4;padding:5px 13px;border-radius:999px;margin-bottom:14px;}
+  h1{font-size:clamp(24px,4vw,32px);font-weight:800;line-height:1.4;}
+  .hero p{color:var(--ink-soft);font-size:15px;max-width:60ch;margin-top:10px;}
+
+  .controls{
+    position:sticky;top:0;background:var(--bg);padding:14px 0;z-index:10;
+    display:flex;gap:10px;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:4px;
+  }
+  #search{
+    flex:1;min-width:160px;padding:11px 14px;border-radius:11px;border:1.5px solid var(--line);
+    font-family:'Tajawal',sans-serif;font-size:15px;background:var(--paper);color:var(--ink);
+  }
+  #search:focus{outline:2px solid var(--brand);outline-offset:1px;border-color:var(--brand);}
+  .cat-btn{
+    padding:10px 16px;border-radius:10px;border:1.5px solid var(--line);background:var(--paper);
+    font-family:'Tajawal',sans-serif;font-weight:700;font-size:13px;color:var(--ink-soft);cursor:pointer;white-space:nowrap;
+  }
+  .cat-btn.active{background:var(--brand);border-color:var(--brand);color:#fff;}
+
+  .legend{display:flex;gap:16px;flex-wrap:wrap;padding:14px 0 6px;font-size:12px;color:var(--ink-soft);}
+  .legend span{display:inline-flex;align-items:center;gap:5px;}
+  .dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
+
+  table{width:100%;border-collapse:collapse;margin:10px 0 40px;background:var(--paper);border-radius:14px;overflow:hidden;box-shadow:0 1px 2px rgba(22,35,28,.05);}
+  thead th{
+    background:var(--brand-deep);color:#fff;font-family:'Cairo',sans-serif;font-weight:700;
+    font-size:12.5px;padding:11px 8px;text-align:center;position:sticky;top:58px;
+  }
+  thead th:first-child{text-align:right;padding-inline-start:16px;}
+  tbody td{padding:10px 8px;text-align:center;font-size:14px;border-bottom:1px solid var(--line);}
+  tbody td:first-child{text-align:right;font-weight:600;padding-inline-start:16px;}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:hover{background:#F6F8F4;}
+  .cat-tag{font-size:10.5px;color:var(--ink-soft);display:block;font-weight:400;margin-top:1px;}
+  .p{color:var(--protein);font-weight:700;}
+  .c{color:var(--carb);font-weight:700;}
+  .f{color:var(--fat);font-weight:700;}
+  .hint{color:var(--ink-soft);font-size:12px;margin-bottom:14px;}
+  .no-results{display:none;text-align:center;padding:40px 0;color:var(--ink-soft);}
+
+  .cta-card{background:var(--brand-deep);color:#fff;border-radius:20px;padding:28px;margin:20px 0 40px;text-align:center;}
+  .cta-card h2{color:#fff;font-size:19px;}
+  .cta-card p{color:#CFE0D5;font-size:14px;margin:8px 0 16px;}
+  .cta-card a{display:inline-block;background:var(--energy);color:#fff;padding:11px 22px;border-radius:10px;font-weight:700;text-decoration:none;font-family:'Cairo',sans-serif;}
+
+  footer{border-top:1px solid var(--line);padding:20px 0;color:var(--ink-soft);font-size:13px;text-align:center;}
+
+  @media(max-width:640px){
+    thead th{font-size:11px;padding:9px 4px;}
+    tbody td{font-size:12.5px;padding:8px 4px;}
+  }
+</style>
+<link rel="stylesheet" href="menu.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="index.html" class="logo">سعرات<span>ي</span></a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">مرجع سريع</span>
+    <h1>جدول الأغذية: السعرات والبروتين لكل طعام</h1>
+    <p>القيم لكل 100 غرام من الطعام (ما لم يُذكر غير ذلك). استخدم البحث أو الفئات بالأسفل للوصول السريع لما تبحث عنه.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="controls">
+    <input type="text" id="search" placeholder="ابحث عن طعام... مثال: دجاج">
+  </div>
+  <div class="controls" style="border-bottom:none;padding-top:10px;">
+    <button class="cat-btn active" data-cat="all">الكل</button>
+    <button class="cat-btn" data-cat="protein">لحوم وبروتين</button>
+    <button class="cat-btn" data-cat="carb">نشويات وحبوب</button>
+    <button class="cat-btn" data-cat="dairy">ألبان وبيض</button>
+    <button class="cat-btn" data-cat="veg">خضار وفواكه</button>
+    <button class="cat-btn" data-cat="nuts">مكسرات ودهون</button>
+  </div>
+
+  <div class="legend">
+    <span><i class="dot" style="background:var(--protein)"></i> بروتين (غم)</span>
+    <span><i class="dot" style="background:var(--carb)"></i> كربوهيدرات (غم)</span>
+    <span><i class="dot" style="background:var(--fat)"></i> دهون (غم)</span>
+  </div>
+
+  <table id="foodTable">
+    <thead>
+      <tr>
+        <th>الطعام</th>
+        <th>سعرات</th>
+        <th>بروتين</th>
+        <th>كربوهيدرات</th>
+        <th>دهون</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+
+  <p class="no-results" id="noResults">ما فيه نتائج مطابقة — جرب كلمة بحث ثانية.</p>
+
+  <div class="cta-card">
+    <h2>عندك احتياجك اليومي؟</h2>
+    <p>استخدم الحاسبة لمعرفة كم سعرة تحتاج، ثم استخدم هذا الجدول لتوزيعها بذكاء.</p>
+    <a href="index.html#calc">احسب سعراتي الآن</a>
+  </div>
+</div>
+
+<div class="promo-box" style="max-width:760px;margin:32px auto;padding:0 24px;">
+  <div style="background:#fff;border:1px solid #DCE2D8;border-radius:16px;padding:16px;text-align:center;">
+    <div style="font-size:12px;color:#4B5A50;margin-bottom:10px;">إعلان</div>
+    <iframe data-aa='2451540' src='//acceptable.a-ads.com/2451540/?size=Adaptive'
+      style='border:0; padding:0; width:100%; height:auto; overflow:hidden;display:block;margin:0 auto;'
+      scrolling="no"></iframe>
+  </div>
+</div>
+
+<footer>© 2026 سعراتي — <a href="privacy.html">سياسة الخصوصية</a></footer>
+
+<script>
+const foods = [
+  // اسم، فئة، سعرات، بروتين، كربوهيدرات، دهون
+  ["صدر دجاج مشوي بدون جلد","protein",165,31,0,3.6],
+  ["فخذ دجاج بدون جلد","protein",172,25,0,7.5],
+  ["لحم بقري قليل الدهن","protein",217,26,0,12],
+  ["لحم غنم","protein",294,25,0,21],
+  ["سمك تونة (معلب بالماء)","protein",116,26,0,1],
+  ["سمك سلمون","protein",208,20,0,13],
+  ["روبيان (جمبري)","protein",99,24,0.2,0.3],
+  ["كبدة دجاج","protein",167,25,0.9,6.5],
+  ["ديك رومي (صدر)","protein",135,30,0,1],
+  ["نقانق دجاج","protein",230,14,3,17],
+
+  ["أرز أبيض مطبوخ","carb",130,2.7,28,0.3],
+  ["أرز بني مطبوخ","carb",112,2.6,24,0.9],
+  ["خبز أبيض","carb",265,9,49,3.2],
+  ["خبز أسمر (حبوب كاملة)","carb",247,13,41,4.2],
+  ["شوفان نيء","carb",389,17,66,7],
+  ["معكرونة مطبوخة","carb",158,5.8,31,0.9],
+  ["بطاطا مسلوقة","carb",87,2,20,0.1],
+  ["بطاطا حلوة مسلوقة","carb",86,1.6,20,0.1],
+  ["عدس مطبوخ","carb",116,9,20,0.4],
+  ["فول مطبوخ","carb",110,7.6,18,0.4],
+  ["حمص مطبوخ","carb",164,9,27,2.6],
+  ["كينوا مطبوخة","carb",120,4.4,21,1.9],
+
+  ["بيضة كاملة مسلوقة","dairy",155,13,1.1,11],
+  ["بياض بيضة","dairy",52,11,0.7,0.2],
+  ["حليب كامل الدسم","dairy",61,3.2,4.8,3.3],
+  ["حليب قليل الدسم","dairy",42,3.4,5,1],
+  ["زبادي يوناني كامل الدسم","dairy",97,9,4,5],
+  ["زبادي عادي","dairy",61,3.5,4.7,3.3],
+  ["جبنة قريش (كوتاج)","dairy",98,11,3.4,4.3],
+  ["جبنة شيدر","dairy",403,25,1.3,33],
+  ["جبنة موزاريلا","dairy",280,28,3.1,17],
+
+  ["موز","veg",89,1.1,23,0.3],
+  ["تفاح","veg",52,0.3,14,0.2],
+  ["برتقال","veg",47,0.9,12,0.1],
+  ["فراولة","veg",32,0.7,7.7,0.3],
+  ["تمر","veg",282,2.5,75,0.4],
+  ["بطيخ","veg",30,0.6,7.6,0.2],
+  ["خيار","veg",15,0.7,3.6,0.1],
+  ["طماطم","veg",18,0.9,3.9,0.2],
+  ["بروكلي مطبوخ","veg",35,2.4,7,0.4],
+  ["سبانخ مطبوخة","veg",23,3,3.6,0.3],
+  ["جزر","veg",41,0.9,10,0.2],
+  ["أفوكادو","veg",160,2,8.5,15],
+
+  ["لوز","nuts",579,21,22,50],
+  ["جوز (عين الجمل)","nuts",654,15,14,65],
+  ["كاجو","nuts",553,18,30,44],
+  ["فستق","nuts",560,20,28,45],
+  ["زبدة الفول السوداني","nuts",588,25,20,50],
+  ["زيت زيتون","nuts",884,0,0,100],
+  ["بذور شيا","nuts",486,17,42,31],
+];
+
+const tbody = document.getElementById('tableBody');
+const search = document.getElementById('search');
+const noResults = document.getElementById('noResults');
+let activeCat = 'all';
+
+function render(){
+  const q = search.value.trim().toLowerCase();
+  tbody.innerHTML = '';
+  let count = 0;
+  foods.forEach(f => {
+    const [name, cat, kcal, p, c, fat] = f;
+    if(activeCat !== 'all' && cat !== activeCat) return;
+    if(q && !name.toLowerCase().includes(q)) return;
+    count++;
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${name}</td>
+      <td class="num">${kcal}</td>
+      <td class="num p">${p}</td>
+      <td class="num c">${c}</td>
+      <td class="num f">${fat}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+  document.getElementById('foodTable').style.display = count ? '' : 'none';
+  noResults.style.display = count ? 'none' : 'block';
+}
+
+search.addEventListener('input', render);
+document.querySelectorAll('.cat-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeCat = btn.dataset.cat;
+    render();
+  });
+});
+
+render();
+</script>
+
+<script src="menu.js" defer></script>
+</body>
+</html>

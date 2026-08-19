@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFQDJ0TW9H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+
+  gtag("config", "G-YFQDJ0TW9H");
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حاسبة الحمل — احسبي أسبوع حملك وموعد الولادة المتوقع | سعراتي</title>
+<meta name="description" content="احسبي أسبوع حملك الحالي وموعد الولادة المتوقع مجاناً، بناءً على تاريخ أول يوم من آخر دورة شهرية.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F1F3EE;--paper:#FFFFFF;--ink:#16231C;--ink-soft:#4B5A50;--brand:#2F5D46;--brand-deep:#1E3E30;--energy:#E2572B;--line:#DCE2D8;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Tajawal',sans-serif;line-height:1.9;}
+  h1,h2{font-family:'Cairo',sans-serif;color:var(--brand-deep);}
+  a{color:var(--brand);}
+  header{padding:22px 0;border-bottom:1px solid var(--line);}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+  header .wrap{max-width:1120px;display:flex;justify-content:space-between;align-items:center;}
+  .logo{font-family:'Cairo',sans-serif;font-weight:800;font-size:20px;color:var(--brand-deep);text-decoration:none;}
+  .logo span{color:var(--energy);}
+  article{padding:44px 0;}
+  .art-tag{font-size:13px;font-weight:700;color:var(--brand);background:#E2ECE4;padding:5px 12px;border-radius:999px;}
+  h1{font-size:clamp(26px,4vw,36px);margin:18px 0 8px;line-height:1.4;}
+  .meta{color:var(--ink-soft);font-size:14px;margin-bottom:24px;}
+  p{color:var(--ink);}
+  h2{font-size:20px;margin-top:32px;}
+
+  .calc-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px;margin:24px 0;box-shadow:0 1px 2px rgba(22,35,28,.04), 0 12px 32px rgba(22,35,28,.08);}
+  .field{margin-bottom:14px;}
+  .field label{display:block;font-size:13px;font-weight:700;color:var(--ink-soft);margin-bottom:6px;}
+  .field input, .field select{width:100%;padding:12px 14px;border-radius:11px;border:1.5px solid var(--line);background:#FAFBF9;font-family:'Tajawal',sans-serif;font-size:15px;color:var(--ink);}
+  .field input:focus, .field select:focus{outline:none;border-color:var(--brand);}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .btn{width:100%;padding:14px;border:none;border-radius:12px;background:var(--energy);color:#fff;font-weight:700;font-size:16px;font-family:'Tajawal',sans-serif;cursor:pointer;}
+  .btn:hover{filter:brightness(1.06);}
+  .result{display:none;margin-top:20px;padding-top:20px;border-top:1px solid var(--line);text-align:center;}
+  .result.show{display:block;}
+  .result .big{font-family:'Cairo',sans-serif;font-weight:800;font-size:30px;color:var(--brand-deep);}
+  .result .big small{font-size:15px;font-weight:600;color:var(--ink-soft);}
+  .result .caption{color:var(--ink-soft);font-size:14px;margin-top:4px;}
+  .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;text-align:center;}
+  .result-grid .stat{background:#EEF1EB;border-radius:12px;padding:14px 8px;}
+  .result-grid .stat .n{font-family:'Cairo',sans-serif;font-weight:800;font-size:20px;color:var(--brand-deep);}
+  .result-grid .stat .l{font-size:12px;color:var(--ink-soft);margin-top:4px;}
+
+  .disclaimer{background:#F6D9CC;border-radius:12px;padding:14px 16px;margin-top:16px;font-size:13px;color:var(--ink);}
+
+  .card{background:var(--brand-deep);color:#fff;border-radius:16px;padding:24px;margin:28px 0;text-align:center;}
+  .card h2{color:#fff;font-size:19px;margin-top:0;}
+  .card p{color:#CFE0D5;margin:8px 0 14px;font-size:14px;}
+  .cta{display:inline-block;background:var(--energy);color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;text-decoration:none;}
+  footer{border-top:1px solid var(--line);padding:24px 0;color:var(--ink-soft);font-size:13px;text-align:center;}
+
+  @media(max-width:480px){.row2{grid-template-columns:1fr;}}
+</style>
+<link rel="stylesheet" href="menu.css">
+</head>
+<body>
+
+<header><div class="wrap"><a href="index.html" class="logo">سعرات<span>ي</span></a></div></header>
+
+<article>
+  <div class="wrap">
+    <span class="art-tag">حاسبة</span>
+    <h1>حاسبة الحمل</h1>
+    <div class="meta">أداة مجانية</div>
+
+    <p>احسبي أسبوع حملك الحالي وموعد الولادة المتوقع، بناءً على تاريخ أول يوم من آخر دورة شهرية لك.</p>
+
+    <div class="calc-card">
+      <div class="field">
+        <label>تاريخ أول يوم من آخر دورة شهرية</label>
+        <input type="date" id="lmpDate">
+      </div>
+      <div class="field">
+        <label>متوسط طول الدورة الشهرية (أيام)</label>
+        <input type="number" id="cycleLength" value="28" min="21" max="40">
+      </div>
+      <button class="btn" onclick="calcPregnancy()">احسبي أسبوع الحمل</button>
+
+      <div class="result" id="resultBox">
+        <div class="big" id="resultNum">0 <small>أسبوع</small></div>
+        <div class="caption" id="resultCaption"></div>
+        <div class="result-grid">
+          <div class="stat">
+            <div class="n" id="dueDate">-</div>
+            <div class="l">موعد الولادة المتوقع</div>
+          </div>
+          <div class="stat">
+            <div class="n" id="trimester">-</div>
+            <div class="l">الثلث الحالي</div>
+          </div>
+        </div>
+        <div class="disclaimer">هذه النتيجة تقديرية فقط بغرض المعرفة العامة، ولا تغني عن متابعة طبيب النسائية والتوليد لتحديد عمر الحمل وموعد الولادة بدقة.</div>
+      </div>
+    </div>
+
+    <h2>إزاي بتتحسب مدة الحمل؟</h2>
+    <p>الطريقة الشائعة (قاعدة نيغل) بتحسب موعد الولادة المتوقع بإضافة 280 يوم (40 أسبوع) على تاريخ أول يوم من آخر دورة شهرية، مع تعديل بسيط لو طول دورتك مختلف عن المتوسط (28 يوم).</p>
+
+    <h2>هل التاريخ ده أكيد؟</h2>
+    <p>لأ، هو تاريخ تقديري بس. أقل من 5% فقط من النساء بيولدن بالظبط في التاريخ المحسوب، والولادة الطبيعية غالباً بتحصل في أي وقت بين الأسبوع 37 و42. المتابعة الدورية مع الطبيب هي اللي بتحدد الصورة الدقيقة لحملك.</p>
+  </div>
+</article>
+
+<div class="promo-box" style="max-width:760px;margin:32px auto;padding:0 24px;">
+  <div style="background:#fff;border:1px solid #DCE2D8;border-radius:16px;padding:16px;text-align:center;">
+    <div style="font-size:12px;color:#4B5A50;margin-bottom:10px;">إعلان</div>
+    <iframe data-aa='2451540' src='//acceptable.a-ads.com/2451540/?size=Adaptive'
+      style='border:0; padding:0; width:100%; height:auto; overflow:hidden;display:block;margin:0 auto;'
+      scrolling="no"></iframe>
+  </div>
+</div>
+
+<footer>© 2026 سعراتي — <a href="privacy.html">سياسة الخصوصية</a></footer>
+
+<script>
+function calcPregnancy(){
+  const lmpVal = document.getElementById('lmpDate').value;
+  const cycleLength = parseFloat(document.getElementById('cycleLength').value) || 28;
+
+  if(!lmpVal){ alert('الرجاء إدخال تاريخ أول يوم من آخر دورة شهرية'); return; }
+
+  const lmp = new Date(lmpVal + 'T00:00:00');
+  const today = new Date();
+  today.setHours(0,0,0,0);
+
+  const cycleAdjust = cycleLength - 28;
+
+  const adjustedLmp = new Date(lmp);
+  adjustedLmp.setDate(adjustedLmp.getDate() + cycleAdjust);
+
+  const daysSince = Math.floor((today - adjustedLmp) / (1000*60*60*24));
+
+  if(daysSince < 0 || daysSince > 315){
+    alert('الرجاء إدخال تاريخ صحيح لآخر دورة شهرية (خلال آخر 45 أسبوع)');
+    return;
+  }
+
+  const week = Math.floor(daysSince / 7);
+  const dayInWeek = daysSince % 7;
+
+  const dueDate = new Date(adjustedLmp);
+  dueDate.setDate(dueDate.getDate() + 280);
+
+  let trimester = 'الأول';
+  if(week >= 27) trimester = 'الثالث';
+  else if(week >= 13) trimester = 'الثاني';
+
+  document.getElementById('resultNum').innerHTML = week + ' <small>أسبوع و' + dayInWeek + ' يوم</small>';
+  document.getElementById('resultCaption').textContent = 'من إجمالي 40 أسبوع تقريباً';
+  document.getElementById('dueDate').textContent = dueDate.toLocaleDateString('ar-EG', {year:'numeric', month:'long', day:'numeric'});
+  document.getElementById('trimester').textContent = trimester;
+
+  document.getElementById('resultBox').classList.add('show');
+  document.getElementById('resultBox').scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+</script>
+
+<script src="menu.js" defer></script>
+</body>
+</html>
